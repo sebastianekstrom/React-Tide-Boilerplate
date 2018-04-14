@@ -1,7 +1,7 @@
 import { find } from 'lodash'
 
 import { css } from 'styled-components'
-import { breakpointM, breakpointL, breakpointXL } from './config'
+import { breakpointM, breakpointL, breakpointXL } from '../config'
 
 export const screenSizeM = (...args) => {
   return css`

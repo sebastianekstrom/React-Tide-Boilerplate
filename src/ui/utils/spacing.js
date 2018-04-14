@@ -6,7 +6,7 @@ import {
   spacingL,
   spacingXL,
   spacingXXL,
-} from './config'
+} from '../config'
 
 const spacings = {
   xxs: spacingXXS,

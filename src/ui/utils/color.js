@@ -1,5 +1,5 @@
 import { capitalize, chunk, memoize } from 'lodash'
-import * as uiConfig from './config'
+import * as uiConfig from '../config'
 
 const color = (color, shade = '') => {
   const colorType = `color${capitalize(color)}${shade}`

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import Box from './Box'
-import color from './utils/color'
+import Box from '../Box/Box'
+import color from '../utils/color'
 
 import {
   fontFamily,
@@ -15,7 +15,7 @@ import {
   fontSizeM,
   fontSizeL,
   fontSizeXL,
-} from './utils/config'
+} from '../config'
 
 const propToWeight = {
   light: fontLight,

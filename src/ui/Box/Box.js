@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import Base from './Base'
+import Base from '../Base/Base'
 
 import {
   screenSizeM,
@@ -8,9 +8,9 @@ import {
   screenSizeXL,
   responsive,
   responsiveProp,
-} from './utils/responsive'
+} from '../utils/responsive'
 
-import { spacingShorthand } from './utils/spacing'
+import { spacingShorthand } from '../utils/spacing'
 
 const allowedFlexAligments = [
   'start',
