@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Box from './components/Box'
-import Text from './components/Text'
+import Box from './ui/Box'
+import Text from './ui/Text'
 
 class App extends Component {
   render() {

@@ -12,8 +12,7 @@ export const fontSemiBold = 600
 export const fontBold = 700
 
 // Font families
-export const fontFamily =
-  'Tictail Sans, Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif'
+export const fontFamily = 'Helvetica, Arial, sans-serif'
 
 export const fontFamilyNative = {
   regular: 'TictailSans-Regular',

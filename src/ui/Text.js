@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Box from './Box'
-import color from '../utils/color'
+import color from './utils/color'
 
 import {
   fontFamily,
@@ -15,7 +15,7 @@ import {
   fontSizeM,
   fontSizeL,
   fontSizeXL,
-} from '../utils/config'
+} from './utils/config'
 
 const propToWeight = {
   light: fontLight,
@@ -42,7 +42,7 @@ const StyledText = styled(Box)`
   -webkit-font-smoothing: antialiased;
   ${p => p.uppercase && 'text-transform: uppercase'};
   line-height: 1.5em;
-  ${props => (props.color ? `color: ${color(...props.color)};` : '')};
+  ${props => props.color && `color: ${color(...props.color)};`};
   ${p =>
     p.overflow !== 'visible' &&
     `
@@ -64,7 +64,7 @@ StyledText.defaultProps = {
   size: 's',
   weight: 'regular',
   component: 'span',
-  color: ['gray', 800],
+  color: ['black'],
   overflow: 'visible',
   inline: true,
   uppercase: false,

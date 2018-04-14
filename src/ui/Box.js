@@ -8,9 +8,9 @@ import {
   screenSizeXL,
   responsive,
   responsiveProp,
-} from '../utils/responsive'
+} from './utils/responsive'
 
-import { spacingShorthand } from '../utils/spacing'
+import { spacingShorthand } from './utils/spacing'
 
 const allowedFlexAligments = [
   'start',
