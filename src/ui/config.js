@@ -14,12 +14,6 @@ export const fontBold = 700
 // Font families
 export const fontFamily = 'Helvetica, Arial, sans-serif'
 
-export const fontFamilyNative = {
-  regular: 'TictailSans-Regular',
-  semibold: 'TictailSans-SemiBold',
-  bold: 'TictailSans-Bold',
-}
-
 // Spacings
 export const spacingXXS = 5
 export const spacingXS = 10

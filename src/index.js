@@ -1,7 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
 import { injectGlobal } from 'styled-components'
+import { Component as TideComponent } from 'tide'
+
+import App from './screens/App/App'
+import createTide from './tide'
 
 injectGlobal`
   html {
@@ -19,4 +22,11 @@ injectGlobal`
   }
 `
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const tide = createTide()
+const app = (
+  <TideComponent tide={tide}>
+    {(props) => <App />}
+  </TideComponent>
+)
+
+ReactDOM.render(app, document.getElementById('root'))
