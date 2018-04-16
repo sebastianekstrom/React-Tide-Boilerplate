@@ -1,23 +1,28 @@
-import React, { Component } from 'react'
-import { wrap } from 'tide'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { wrap } from "tide";
 
-import Box from '../../ui/Box/Box'
-import Text from '../../ui/Text/Text'
+import Box from "../../components/Box/Box";
+import Text from "../../components/Text/Text";
 
 class App extends Component {
+  static propTypes = {
+    tide: PropTypes.object
+  };
+
   componentDidMount = () => {
-    this.props.tide.actions.app.load()
-  }
+    this.props.tide.actions.app.load();
+  };
 
   render() {
     return (
-      <Box padding={{ all: 'm' }} align="center">
-        <Text size="l">{'React Tide Boilerplate'}</Text>
+      <Box padding={{ all: "m" }} align="center">
+        <Text size="l">{"React Tide Boilerplate"}</Text>
       </Box>
-    )
+    );
   }
 }
 
 export default wrap(App, {
-  foobar: 'foobar'
-})
+  foobar: "foobar"
+});
