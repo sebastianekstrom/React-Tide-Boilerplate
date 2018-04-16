@@ -14,7 +14,12 @@ import {
   fontSizeS,
   fontSizeM,
   fontSizeL,
-  fontSizeXL
+  fontSizeXL,
+  lineHeightXS,
+  lineHeightS,
+  lineHeightM,
+  lineHeightL,
+  lineHeightXL
 } from "../config";
 
 const propToWeight = {
@@ -35,13 +40,24 @@ export function propToSize(size) {
   return propToSizeMap[size];
 }
 
+export function sizeToLineHeight(size) {
+  const sizeToLineHeight = {
+    xs: lineHeightXS,
+    s: lineHeightS,
+    m: lineHeightM,
+    l: lineHeightL,
+    xl: lineHeightXL
+  };
+  return sizeToLineHeight[size];
+}
+
 const StyledText = styled(Box)`
   font-family: ${fontFamily};
   font-weight: ${props => propToWeight[props.weight]};
   font-size: ${props => propToSize(props.size)}px;
   -webkit-font-smoothing: antialiased;
   ${p => p.uppercase && "text-transform: uppercase"};
-  line-height: 1.5em;
+  line-height: ${props => sizeToLineHeight(props.size)};
   ${props => props.color && `color: ${color(...props.color)};`};
   ${p =>
     p.overflow !== "visible" &&
