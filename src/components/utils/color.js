@@ -1,4 +1,4 @@
-import { capitalize, chunk } from "lodash";
+import { capitalize } from "lodash";
 import * as uiConfig from "../config";
 
 const color = (color, shade = "") => {
