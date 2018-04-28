@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -56,7 +57,7 @@ const StyledText = styled(Box)`
   font-weight: ${props => propToWeight[props.weight]};
   font-size: ${props => propToSize(props.size)}px;
   -webkit-font-smoothing: antialiased;
-  ${p => p.uppercase && "text-transform: uppercase"};
+  ${p => p.uppercase && `text-transform: uppercase`};
   line-height: ${props => sizeToLineHeight(props.size)};
   ${props => props.color && `color: ${color(...props.color)};`};
   ${p =>
@@ -67,16 +68,33 @@ const StyledText = styled(Box)`
     white-space: nowrap;
     ${p.overflow === "ellipsis" && "text-overflow: ellipsis"};
   `};
+  ${p =>
+    p.placeholderActive &&
+    `
+      color: transparent;
+      background: ${color("gray")};
+    `};
 `;
 
-StyledText.propTypes = {
+const Text = props => {
+  const passedProps = { ...props };
+  if (props.placeholderText && !props.children) {
+    passedProps.children = props.placeholderText;
+    passedProps.placeholderActive = true;
+  }
+  return <StyledText {...passedProps} />;
+};
+
+Text.propTypes = {
   color: PropTypes.array,
   overflow: PropTypes.oneOf(["ellipsis", "hidden", "visible"]),
+  placeholderText: PropTypes.string,
   size: PropTypes.oneOf(["xs", "s", "m", "l", "xl"]),
+  uppercase: PropTypes.bool,
   weight: PropTypes.oneOf(["light", "regular", "semibold", "bold"])
 };
 
-StyledText.defaultProps = {
+Text.defaultProps = {
   size: "s",
   weight: "regular",
   component: "span",
@@ -84,7 +102,8 @@ StyledText.defaultProps = {
   overflow: "visible",
   inline: true,
   uppercase: false,
-  placeholderText: null
+  placeholderText: null,
+  passedProps: []
 };
 
-export default StyledText;
+export default Text;
