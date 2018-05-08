@@ -39,3 +39,4 @@ export const breakpointXXL = 1064;
 // Colors
 export const colorBlack = "#282E34";
 export const colorWhite = "#FFFFFF";
+export const colorGray = "#E3E3E3";
