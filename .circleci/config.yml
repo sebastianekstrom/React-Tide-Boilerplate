@@ -1,6 +1,7 @@
 version: 2
 jobs:
   install:
+    working_directory: ~/react-tide-boilerplate
     docker:
       - image: circleci/node:8.9.0
     steps:
@@ -17,6 +18,7 @@ jobs:
             - node_modules_prod.tar.gz
 
   test:
+    working_directory: ~/react-tide-boilerplate
     docker:
       - image: circleci/node:8.9.0
     parallelism: 3
@@ -25,3 +27,12 @@ jobs:
       - restore_cache:
           key: v4-dependency-cache-{{ checksum "package.json" }}
       - run: npm run test
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - install
+      - test:
+          requires:
+            - install
