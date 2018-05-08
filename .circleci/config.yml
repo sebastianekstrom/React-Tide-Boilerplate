@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  install:
+    docker:
+      - image: circleci/node:8.9.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: v4-dependency-cache-{{ checksum "package.json" }}
+      - run:
+          command: |
+            npm install
+      - save_cache:
+          key: v4-dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+            - node_modules_prod.tar.gz
+
+  test:
+    docker:
+      - image: circleci/node:8.9.0
+    parallelism: 3
+    steps:
+      - checkout
+      - restore_cache:
+          key: v4-dependency-cache-{{ checksum "package.json" }}
+      - run: npm run test
