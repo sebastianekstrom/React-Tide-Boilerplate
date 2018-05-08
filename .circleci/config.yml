@@ -27,3 +27,12 @@ jobs:
       - restore_cache:
           key: v4-dependency-cache-{{ checksum "package.json" }}
       - run: npm run test
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - install
+      - test:
+          requires:
+            - install
